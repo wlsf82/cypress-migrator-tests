@@ -12,7 +12,12 @@ describe('Cypress Migrator', () => {
   })
 
   testScenarios.forEach(scenario => {
-    const { title, snippetToBeMigrated, migratedSnippet } = scenario
+    const {
+      title,
+      snippetToBeMigrated,
+      migratedSnippet,
+      cypressCommand
+    } = scenario
 
     it(title, () => {
       cy.get('@leftSideEditor')
@@ -27,6 +32,8 @@ describe('Cypress Migrator', () => {
         .should($textArea => {
           expect($textArea[0].value).includes(migratedSnippet)
         })
+      cy.get('[data-test="api-details"]')
+        .should('contain', cypressCommand)
     })
   })
 })
