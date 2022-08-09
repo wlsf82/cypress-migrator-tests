@@ -16,8 +16,7 @@ describe('Cypress Migrator', () => {
     cy.get('@leftSideEditor')
       .type("browser.get('https://walmyr.dev')")
 
-    cy.contains('button', 'Migrate to Cypress')
-      .click()
+    cy.migrate()
 
     cy.get('@rightSideEditor')
       .scrollIntoView()
@@ -30,8 +29,7 @@ describe('Cypress Migrator', () => {
     cy.get('@leftSideEditor')
       .type("element(by.css('selector'))")
 
-    cy.contains('button', 'Migrate to Cypress')
-      .click()
+    cy.migrate()
 
     cy.get('@rightSideEditor')
       .scrollIntoView()
@@ -44,8 +42,7 @@ describe('Cypress Migrator', () => {
     cy.get('@leftSideEditor')
       .type("element(by.className('sample-class'))")
 
-    cy.contains('button', 'Migrate to Cypress')
-      .click()
+    cy.migrate()
 
     cy.get('@rightSideEditor')
       .scrollIntoView()
@@ -58,8 +55,7 @@ describe('Cypress Migrator', () => {
     cy.get('@leftSideEditor')
       .type("element(by.cssContainingText('selector', 'Sample content'))")
 
-    cy.contains('button', 'Migrate to Cypress')
-      .click()
+    cy.migrate()
 
     cy.get('@rightSideEditor')
       .scrollIntoView()
@@ -73,8 +69,7 @@ describe('Cypress Migrator', () => {
     cy.get('@leftSideEditor')
       .type("element(by.css('selector').sendKeys('ABC'))")
 
-    cy.contains('button', 'Migrate to Cypress')
-      .click()
+    cy.migrate()
 
     cy.get('@rightSideEditor')
       .scrollIntoView()
@@ -82,5 +77,10 @@ describe('Cypress Migrator', () => {
         expect($textArea[0].value)
           .includes("cy.get('selector').type('ABC')")
       })
+  })
+
+  Cypress.Commands.add('migrate', () => {
+    cy.contains('button', 'Migrate to Cypress')
+      .click()
   })
 })
