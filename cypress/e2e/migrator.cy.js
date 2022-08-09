@@ -15,9 +15,18 @@ describe('Cypress Migrator', () => {
     const { title, snippetToBeMigrated, migratedSnippet } = scenario
 
     it(title, () => {
-      cy.typeOnLeftSideEditor(snippetToBeMigrated)
-      cy.migrate()
-      cy.assertRightSideEditorCodeSnippet(migratedSnippet)
+      cy.get('@leftSideEditor')
+        .type(snippetToBeMigrated)
+
+      cy.contains('button', 'Migrate to Cypress')
+        .click()
+
+      cy.get('@textAreas')
+        .last()
+        .scrollIntoView()
+        .should($textArea => {
+          expect($textArea[0].value).includes(migratedSnippet)
+        })
     })
   })
 })
