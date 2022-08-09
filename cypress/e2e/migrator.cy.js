@@ -19,7 +19,7 @@ describe('Cypress Migrator', () => {
       cypressCommand
     } = scenario
 
-    it(title, () => {
+    it(`migrates Protractor's ${title}`, () => {
       cy.get('@leftSideEditor')
         .type(snippetToBeMigrated)
 
