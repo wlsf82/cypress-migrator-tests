@@ -14,14 +14,14 @@ describe('Cypress Migrator', () => {
   testScenarios.forEach(scenario => {
     const {
       title,
-      snippetToBeMigrated,
+      snippetToMigrate,
       migratedSnippet,
       cypressCommand
     } = scenario
 
     it(`migrates Protractor's ${title}`, () => {
       cy.get('@leftSideEditor')
-        .type(snippetToBeMigrated)
+        .type(snippetToMigrate)
 
       cy.contains('button', 'Migrate to Cypress')
         .click()
