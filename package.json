@@ -4,7 +4,8 @@
   "description": "TBD.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cy:open": "cypress open",
+    "test": "cypress run"
   },
   "keywords": [],
   "author": "Walmyr Filho <wlsf82@gmail.com> (https://walmyr.dev/)",
