@@ -10,8 +10,7 @@ describe('Cypress Migrator', () => {
   })
 
   it("migrates Protractor's browser.get()", () => {
-    cy.get('@leftSideEditor')
-      .type("browser.get('https://walmyr.dev')")
+    cy.typeOnLeftSideEditor("browser.get('https://walmyr.dev')")
 
     cy.migrate()
 
@@ -19,8 +18,7 @@ describe('Cypress Migrator', () => {
   })
 
   it("migrates Protractor's element(by.css())", () => {
-    cy.get('@leftSideEditor')
-      .type("element(by.css('selector'))")
+    cy.typeOnLeftSideEditor("element(by.css('selector'))")
 
     cy.migrate()
 
@@ -28,8 +26,7 @@ describe('Cypress Migrator', () => {
   })
 
   it("migrates Protractor's element(by.className())", () => {
-    cy.get('@leftSideEditor')
-      .type("element(by.className('sample-class'))")
+    cy.typeOnLeftSideEditor("element(by.className('sample-class'))")
 
     cy.migrate()
 
@@ -37,8 +34,7 @@ describe('Cypress Migrator', () => {
   })
 
   it("migrates Protractor's element(by.cssContainingText())", () => {
-    cy.get('@leftSideEditor')
-      .type("element(by.cssContainingText('selector', 'Sample content'))")
+    cy.typeOnLeftSideEditor("element(by.cssContainingText('selector', 'Sample content'))")
 
     cy.migrate()
 
@@ -46,12 +42,16 @@ describe('Cypress Migrator', () => {
   })
 
   it("migrates Protractor's .sendKeys", () => {
-    cy.get('@leftSideEditor')
-      .type("element(by.css('selector').sendKeys('ABC'))")
+    cy.typeOnLeftSideEditor("element(by.css('selector').sendKeys('ABC'))")
 
     cy.migrate()
 
     cy.assertRightSideEditorCodeSnippet("cy.get('selector').type('ABC')")
+  })
+
+  Cypress.Commands.add('typeOnLeftSideEditor', snippet => {
+    cy.get('@leftSideEditor')
+      .type(snippet)
   })
 
   Cypress.Commands.add('migrate', () => {
