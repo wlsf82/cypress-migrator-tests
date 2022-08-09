@@ -18,11 +18,7 @@ describe('Cypress Migrator', () => {
 
     cy.migrate()
 
-    cy.get('@rightSideEditor')
-      .scrollIntoView()
-      .should($textArea => {
-        expect($textArea[0].value).includes("cy.visit('https://walmyr.dev')")
-      })
+    cy.assertRightSideEditorCodeSnippet("cy.visit('https://walmyr.dev')")
   })
 
   it("migrates Protractor's element(by.css())", () => {
@@ -31,11 +27,7 @@ describe('Cypress Migrator', () => {
 
     cy.migrate()
 
-    cy.get('@rightSideEditor')
-      .scrollIntoView()
-      .should($textArea => {
-        expect($textArea[0].value).includes("cy.get('selector')")
-      })
+    cy.assertRightSideEditorCodeSnippet("cy.get('selector')")
   })
 
   it("migrates Protractor's element(by.className())", () => {
@@ -44,11 +36,7 @@ describe('Cypress Migrator', () => {
 
     cy.migrate()
 
-    cy.get('@rightSideEditor')
-      .scrollIntoView()
-      .should($textArea => {
-        expect($textArea[0].value).includes("cy.get('.sample-class')")
-      })
+    cy.assertRightSideEditorCodeSnippet("cy.get('.sample-class')")
   })
 
   it("migrates Protractor's element(by.cssContainingText())", () => {
@@ -57,12 +45,7 @@ describe('Cypress Migrator', () => {
 
     cy.migrate()
 
-    cy.get('@rightSideEditor')
-      .scrollIntoView()
-      .should($textArea => {
-        expect($textArea[0].value)
-          .includes("cy.get('selector').contains('Sample content')")
-      })
+    cy.assertRightSideEditorCodeSnippet("cy.get('selector').contains('Sample content')")
   })
 
   it("migrates Protractor's .sendKeys", () => {
@@ -71,16 +54,19 @@ describe('Cypress Migrator', () => {
 
     cy.migrate()
 
-    cy.get('@rightSideEditor')
-      .scrollIntoView()
-      .should($textArea => {
-        expect($textArea[0].value)
-          .includes("cy.get('selector').type('ABC')")
-      })
+    cy.assertRightSideEditorCodeSnippet("cy.get('selector').type('ABC')")
   })
 
   Cypress.Commands.add('migrate', () => {
     cy.contains('button', 'Migrate to Cypress')
       .click()
+  })
+
+  Cypress.Commands.add('assertRightSideEditorCodeSnippet', snippet => {
+    cy.get('@rightSideEditor')
+      .scrollIntoView()
+      .should($textArea => {
+        expect($textArea[0].value).includes(snippet)
+      })
   })
 })
