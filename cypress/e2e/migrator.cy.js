@@ -7,9 +7,6 @@ describe('Cypress Migrator', () => {
       .clear()
       .clear()
       .as('leftSideEditor')
-    cy.get('@textAreas')
-      .last()
-      .as('rightSideEditor')
   })
 
   it("migrates Protractor's browser.get()", () => {
@@ -63,7 +60,8 @@ describe('Cypress Migrator', () => {
   })
 
   Cypress.Commands.add('assertRightSideEditorCodeSnippet', snippet => {
-    cy.get('@rightSideEditor')
+    cy.get('@textAreas')
+      .last()
       .scrollIntoView()
       .should($textArea => {
         expect($textArea[0].value).includes(snippet)
