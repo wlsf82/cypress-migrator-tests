@@ -19,13 +19,13 @@ describe('Cypress Migrator', () => {
 
   testScenarios.forEach(scenario => {
     const {
-      title,
+      protractorCommand,
       snippetToMigrate,
       migratedSnippet,
       cypressCommands
     } = scenario
 
-    it(`migrates Protractor's ${title}`, () => {
+    it(`migrates Protractor's ${protractorCommand} command into Cypress's ${cypressCommands[cypressCommands.length - 1]} command`, () => {
       cy.get('@leftSideEditor')
         .type(snippetToMigrate)
 
