@@ -22,7 +22,7 @@ describe('Cypress Migrator', () => {
       title,
       snippetToMigrate,
       migratedSnippet,
-      cypressCommand
+      cypressCommands
     } = scenario
 
     it(`migrates Protractor's ${title}`, () => {
@@ -38,8 +38,10 @@ describe('Cypress Migrator', () => {
         .should($textArea => {
           expect($textArea[0].value).includes(migratedSnippet)
         })
-      cy.get('[data-test="api-details"]')
-        .should('contain', cypressCommand)
+      cypressCommands.forEach(cmd => {
+        cy.get('[data-test="api-details"]')
+          .should('contain', cmd)
+      })
     })
   })
 })
