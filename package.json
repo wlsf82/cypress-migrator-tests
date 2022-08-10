@@ -1,15 +1,18 @@
 {
   "name": "cypress-migrator-tests",
   "version": "1.0.0",
-  "description": "TBD.",
-  "main": "index.js",
+  "description": "Sample project to demonstrate how to test the Cypress Migrator using Cypress itself.",
   "scripts": {
     "cy:open": "cypress open",
     "cy:open:local": "cypress open --config baseUrl=http://localhost:4200",
     "test": "cypress run",
     "test:local": "cypress run --config baseUrl=http://localhost:4200"
   },
-  "keywords": [],
+  "keywords": [
+    "cypress.io",
+    "cypress migrator",
+    "cypress vs protractor"
+  ],
   "author": "Walmyr Filho <wlsf82@gmail.com> (https://walmyr.dev/)",
   "license": "MIT",
   "devDependencies": {
