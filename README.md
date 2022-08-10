@@ -18,6 +18,12 @@ Run `npm test` (or `npm t` for the short version) to run the test in headless mo
 
 Or, run `npm run cy:open` to open Cypress in interactive mode.
 
+### Running tests against a local environment
+
+If you have the [cypress-migrator](https://github.com/cypress-io/cypress-migrator) project configured locally, run `npm run test:local` to run the tests in headless mode against it.
+
+Or, run `npm run cy:open:local` to open Cypress in interactive mode.
+
 ## Support this project
 
 If you want to support this project, leave a ⭐.

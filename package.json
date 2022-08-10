@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "cy:open": "cypress open",
-    "test": "cypress run"
+    "cy:open:local": "cypress open --config baseUrl=http://localhost:4200",
+    "test": "cypress run",
+    "test:local": "cypress run --config baseUrl=http://localhost:4200"
   },
   "keywords": [],
   "author": "Walmyr Filho <wlsf82@gmail.com> (https://walmyr.dev/)",

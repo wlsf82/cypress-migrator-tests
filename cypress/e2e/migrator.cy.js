@@ -2,7 +2,7 @@ import { testScenarios } from '../fixtures/testScenarios'
 
 describe('Cypress Migrator', () => {
   beforeEach(() => {
-    cy.visit('https://migrator.cypress.io/')
+    cy.visit('/')
     cy.get('.side-by-side.vs textarea')
       .as('textAreas')
       .first()
