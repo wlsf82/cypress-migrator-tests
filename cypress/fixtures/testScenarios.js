@@ -154,5 +154,35 @@ export const testScenarios = [
     snippetToMigrate: "element(by.css('selector')).clear()",
     migratedSnippet: "cy.get('selector').clear()",
     cypressCommands: ['cy.get()', '.clear()']
+  },
+  {
+    title: "browser.refresh()",
+    snippetToMigrate: "browser.refresh()",
+    migratedSnippet: "cy.reload()",
+    cypressCommands: ['cy.reload()']
+  },
+  {
+    title: "$()",
+    snippetToMigrate: "$('selector')",
+    migratedSnippet: "cy.get('selector')",
+    cypressCommands: ['cy.get()']
+  },
+  {
+    title: "$$()",
+    snippetToMigrate: "$$('selector')",
+    migratedSnippet: "cy.get('selector')",
+    cypressCommands: ['cy.get()']
+  },
+  {
+    title: "element(by.css()).get()",
+    snippetToMigrate: "element(by.css('selector')).get(1)",
+    migratedSnippet: "cy.get('selector').eq(1)",
+    cypressCommands: ['cy.get()', '.eq()']
+  },
+  {
+    title: ".submit()",
+    snippetToMigrate: "element(by.css('form')).submit()",
+    migratedSnippet: "cy.get('form').submit()",
+    cypressCommands: ['cy.get()', '.submit()']
   }
 ]
