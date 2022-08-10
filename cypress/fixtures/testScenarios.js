@@ -24,7 +24,7 @@ export const testScenarios = [
     cypressCommand: 'cy.contains()'
   },
   {
-    title: ".sendKeys",
+    title: ".sendKeys()",
     snippetToMigrate: "element(by.css('selector').sendKeys('ABC'))",
     migratedSnippet: "cy.get('selector').type('ABC')",
     cypressCommand: '.type()'
