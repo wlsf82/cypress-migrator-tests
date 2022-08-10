@@ -6,8 +6,14 @@ describe('Cypress Migrator', () => {
     cy.get('.side-by-side.vs textarea')
       .as('textAreas')
       .first()
+      .type('{selectall}')
       .clear()
-      .clear()
+      .then($textArea => {
+        if ($textArea[0].value.length) {
+          cy.log('clearing again...')
+          cy.wrap($textArea).clear()
+        }
+      })
       .as('leftSideEditor')
   })
 
