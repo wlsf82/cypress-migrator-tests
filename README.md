@@ -24,6 +24,21 @@ If you have the [cypress-migrator project](https://github.com/cypress-io/cypress
 
 Or, run `npm run cy:open:local` to open Cypress in interactive mode.
 
+### Tests' results summary
+
+After running the tests in headless mode, you should see a summary like this:
+
+```sh
+(Run Finished)
+
+
+       Spec                                              Tests  Passing  Failing  Pending  Skipped
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ ✔  migrator.cy.js                           00:51       31       31        -        -        - │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+    ✔  All specs passed!                        00:51       31       31        -        -        -
+```
+
 ## Support this project
 
 If you want to support this project, leave a ⭐.
