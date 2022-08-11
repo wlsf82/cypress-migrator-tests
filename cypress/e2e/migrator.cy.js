@@ -38,9 +38,16 @@ describe('Cypress Migrator', () => {
         .should($textArea => {
           expect($textArea[0].value).includes(migratedSnippet)
         })
-      cypressCommands.forEach(cmd => {
+      cypressCommands.forEach((cmd, index) => {
+        const transformedCypressCmd = cypressCommands[index]
+          .replace('cy', '')
+          .replace('.', '')
+          .replace('()', '')
         cy.get('[data-test="api-details"]')
           .should('contain', cmd)
+          .find('a')
+          .eq(index)
+          .should('have.attr', 'href', `https://on.cypress.io/${transformedCypressCmd}`)
       })
     })
   })
