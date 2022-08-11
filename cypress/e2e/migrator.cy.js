@@ -26,11 +26,9 @@ describe('Cypress Migrator', () => {
     } = scenario
 
     it(`migrates Protractor's ${protractorCommand} command into Cypress's ${cypressCommands[cypressCommands.length - 1]} command`, () => {
-      cy.get('@leftSideEditor')
-        .type(snippetToMigrate)
+      cy.get('@leftSideEditor').type(snippetToMigrate)
 
-      cy.contains('button', 'Migrate to Cypress')
-        .click()
+      cy.contains('button', 'Migrate to Cypress').click()
 
       cy.get('@textAreas')
         .last()
@@ -39,7 +37,7 @@ describe('Cypress Migrator', () => {
           expect($textArea[0].value).includes(migratedSnippet)
         })
       cypressCommands.forEach((cmd, index) => {
-        const transformedCypressCmd = cypressCommands[index]
+        const transformedCyCmd = cypressCommands[index]
           .replace('cy', '')
           .replace('.', '')
           .replace('()', '')
@@ -47,7 +45,7 @@ describe('Cypress Migrator', () => {
           .should('contain', cmd)
           .find('a')
           .eq(index)
-          .should('have.attr', 'href', `https://on.cypress.io/${transformedCypressCmd}`)
+          .should('have.attr', 'href', `https://on.cypress.io/${transformedCyCmd}`)
       })
     })
   })
