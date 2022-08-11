@@ -6,7 +6,7 @@ describe('Cypress Migrator', () => {
     cy.get('.side-by-side.vs textarea')
       .as('textAreas')
       .first()
-      .press('selectall')
+      .press('selectAll')
       .clear()
       .then($textArea => {
         if ($textArea[0].value.length) {
