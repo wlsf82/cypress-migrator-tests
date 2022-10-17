@@ -20,8 +20,8 @@ export const testScenarios = [
   {
     protractorCommand: "element(by.cssContainingText())",
     snippetToMigrate: "element(by.cssContainingText('selector', 'Sample content'))",
-    migratedSnippet: "cy.get('selector').contains('Sample content')",
-    cypressCommands: ['cy.get()', 'cy.contains()']
+    migratedSnippet: "cy.contains('selector', 'Sample content')",
+    cypressCommands: ['cy.contains()']
   },
   {
     protractorCommand: ".sendKeys()",
@@ -116,26 +116,26 @@ export const testScenarios = [
   {
     protractorCommand: "element(by.buttonText())",
     snippetToMigrate: "element(by.buttonText('Save'))",
-    migratedSnippet: "cy.get('button').contains('Save')",
-    cypressCommands: ['cy.get()', 'cy.contains()']
+    migratedSnippet: "cy.contains('button', 'Save')",
+    cypressCommands: ['cy.contains()']
   },
   {
     protractorCommand: "element(by.partialButtonText())",
     snippetToMigrate: "element(by.partialButtonText('Creat'))",
-    migratedSnippet: "cy.get('button').contains('Creat')",
-    cypressCommands: ['cy.get()', 'cy.contains()']
+    migratedSnippet: "cy.contains('button', 'Creat')",
+    cypressCommands: ['cy.contains()']
   },
   {
     protractorCommand: "element(by.linkText())",
     snippetToMigrate: "element(by.linkText('Google'))",
-    migratedSnippet: "cy.get('a').contains('Google')",
-    cypressCommands: ['cy.get()', 'cy.contains()']
+    migratedSnippet: "cy.contains('a', 'Google')",
+    cypressCommands: ['cy.contains()']
   },
   {
     protractorCommand: "element(by.partialLinkText())",
     snippetToMigrate: "element(by.partialLinkText('DuckDu'))",
-    migratedSnippet: "cy.get('a').contains('DuckDu')",
-    cypressCommands: ['cy.get()', 'cy.contains()']
+    migratedSnippet: "cy.contains('a', 'DuckDu')",
+    cypressCommands: ['cy.contains()']
   },
   {
     protractorCommand: "element(by.tagName())",
