@@ -174,8 +174,8 @@ export const testScenarios = [
     cypressCommands: ['cy.get()']
   },
   {
-    protractorCommand: "element(by.css()).get()",
-    snippetToMigrate: "element(by.css('selector')).get(1)",
+    protractorCommand: "element.all(by.css()).get()",
+    snippetToMigrate: "element.all(by.css('selector')).get(1)",
     migratedSnippet: "cy.get('selector').eq(1)",
     cypressCommands: ['cy.get()', '.eq()']
   },
