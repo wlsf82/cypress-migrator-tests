@@ -1,5 +1,7 @@
 # cypress-migrator-tests
 
+![Cypress tests](https://github.com/wlsf82/cypress-migrator-tests/actions/workflows/ci.yml/badge.svg)
+
 Sample project to demonstrate how to test the [Cypress Migrator](https://migrator.cypress.io/) using Cypress itself.
 
 ## Pre-requirements
