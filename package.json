@@ -17,6 +17,6 @@
   "license": "MIT",
   "devDependencies": {
     "@walmyr-filho/cy-press": "^1.0.2",
-    "cypress": "^10.11.0"
+    "cypress": "^11.0.1"
   }
 }
